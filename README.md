@@ -12,11 +12,11 @@ SiteGuard is a SaaS solution for website monitoring and security:
 
 ## Project Structure
 
-- **infra/ # Terraform configs for AWS
-- **backend/ # FastAPI (Python) service
-- **frontend/ # React UI
-- **monitoring/ # Prometheus + Grafana setup
-- **docker-compose.yml # Local development & testing
+- **infra**/ # Terraform configs for AWS
+- **backend**/ # FastAPI (Python) service
+- **frontend**/ # React UI
+- **monitoring**/ # Prometheus + Grafana setup
+- **docker-compose.yml** # Local development & testing
 
   ---
 

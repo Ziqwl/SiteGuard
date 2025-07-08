@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СайтГуард</title>
+</head>
+<body>
+    <h1>Добавить сайт</h1>
+    <input type="text" id="site-url" placeholder="Введите URL сайта">
+    <button onclick="addSite()">Добавить</button>
+
+    <h2>Статус сайтов</h2>
+    <div id="site-status"></div>
+
+    <script>
+        async function addSite() {
+            const url = document.getElementById('site-url').value;
+            await fetch('http://56.228.35.196:5000/add-site', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            alert('Сайт добавлен!');
+        }
+
+        async function checkSites() {
+            const response = await fetch('http://56.228.35.196:5000/check-sites');
+            const sites = await response.json();
+            const statusDiv = document.getElementById('site-status');
+            statusDiv.innerHTML = '';
+            sites.forEach(site => {
+                statusDiv.innerHTML += `<p>${site.url}: ${site.status}</p>`;
+            });
+        }
+
+        setInterval(checkSites, 5000);
+    </script>
+</body>
+</html>

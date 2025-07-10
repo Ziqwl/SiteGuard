@@ -1,7 +1,8 @@
 Flask
 flask-cors
+APScheduler
 psycopg2-binary
 python-dotenv
 requests
-
-flask-cors
+APScheduler
+APScheduler

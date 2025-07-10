@@ -1,0 +1,10 @@
+{
+  // Указываем абсолютный путь к python в твоём venv
+  "python.pythonPath": "${workspaceFolder}/siteguard-backend/siteguard-backend/venv/bin/python3",
+
+  // Путь к site‑пакетам именно этого окружения
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/siteguard-backend/siteguard-backend/venv/lib/python3.12/site-packages"
+  ]
+}
+

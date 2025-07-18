@@ -3,7 +3,7 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime, timedelta
 import os
 
-from .models import Site, CheckResult, User, SiteStats, DashboardStats, SiteStatus
+from models import Site, CheckResult, User, SiteStats, DashboardStats, SiteStatus
 
 class DatabaseService:
     def __init__(self, db):

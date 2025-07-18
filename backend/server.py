@@ -11,13 +11,13 @@ import asyncio
 from datetime import datetime
 
 # Импортируем наши модели и сервисы
-from .models import (
+from models import (
     Site, SiteCreate, SiteUpdate, CheckResult, User, UserCreate, UserLogin, Token,
     SiteStats, DashboardStats, StatusCheck, StatusCheckCreate
 )
-from .services.monitoring import MonitoringService
-from .services.auth import AuthService
-from .database import DatabaseService
+from services.monitoring import MonitoringService
+from services.auth import AuthService
+from database import DatabaseService
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')

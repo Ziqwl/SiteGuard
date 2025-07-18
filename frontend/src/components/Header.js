@@ -8,15 +8,17 @@ const Header = ({ user, onLogout }) => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200">
+    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">SG</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">SiteGuard Pro+</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              SiteGuard Pro+
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -30,14 +32,40 @@ const Header = ({ user, onLogout }) => {
               Главная
             </Link>
             {user && (
-              <Link 
-                to="/dashboard" 
-                className={`text-sm font-medium transition-colors ${
-                  isActive('/dashboard') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
-                }`}
-              >
-                Дашборд
-              </Link>
+              <>
+                <Link 
+                  to="/dashboard" 
+                  className={`text-sm font-medium transition-colors ${
+                    isActive('/dashboard') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  Dashboard
+                </Link>
+                <Link 
+                  to="/analytics" 
+                  className={`text-sm font-medium transition-colors ${
+                    isActive('/analytics') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  Analytics
+                </Link>
+                <Link 
+                  to="/notifications" 
+                  className={`text-sm font-medium transition-colors ${
+                    isActive('/notifications') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  Notifications
+                </Link>
+                <Link 
+                  to="/seo" 
+                  className={`text-sm font-medium transition-colors ${
+                    isActive('/seo') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  SEO
+                </Link>
+              </>
             )}
             <Link 
               to="/docs" 
@@ -45,7 +73,7 @@ const Header = ({ user, onLogout }) => {
                 isActive('/docs') ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
               }`}
             >
-              Документация
+              Docs
             </Link>
           </nav>
 
@@ -53,7 +81,7 @@ const Header = ({ user, onLogout }) => {
           <div className="flex items-center space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
-                <span className="text-sm text-gray-700">
+                <span className="text-sm text-gray-700 hidden sm:block">
                   Привет, {user.username}
                 </span>
                 <button
@@ -73,7 +101,7 @@ const Header = ({ user, onLogout }) => {
                 </Link>
                 <Link
                   to="/register"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                 >
                   Регистрация
                 </Link>
@@ -113,20 +141,43 @@ const Header = ({ user, onLogout }) => {
                 Главная
               </Link>
               {user && (
-                <Link
-                  to="/dashboard"
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Дашборд
-                </Link>
+                <>
+                  <Link
+                    to="/dashboard"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    to="/analytics"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Analytics
+                  </Link>
+                  <Link
+                    to="/notifications"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Notifications
+                  </Link>
+                  <Link
+                    to="/seo"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    SEO
+                  </Link>
+                </>
               )}
               <Link
                 to="/docs"
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Документация
+                Docs
               </Link>
             </div>
           </div>

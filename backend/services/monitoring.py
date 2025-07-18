@@ -8,7 +8,7 @@ from urllib.parse import urlparse
 import time
 import certifi
 
-from ..models import Site, CheckResult, SiteStatus, SiteStats, DashboardStats
+from models import Site, CheckResult, SiteStatus, SiteStats, DashboardStats
 
 class MonitoringService:
     def __init__(self):

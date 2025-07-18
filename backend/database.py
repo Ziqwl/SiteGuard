@@ -46,6 +46,9 @@ class DatabaseService:
     async def update_site(self, site_id: str, update_data: dict) -> Optional[Site]:
         """Обновление сайта"""
         update_data["updated_at"] = datetime.utcnow()
+        # Convert HttpUrl to string if present
+        if 'url' in update_data and hasattr(update_data['url'], '__str__'):
+            update_data['url'] = str(update_data['url'])
         result = await self.sites_collection.find_one_and_update(
             {"id": site_id},
             {"$set": update_data},

@@ -2,7 +2,7 @@ import jwt
 import bcrypt
 from datetime import datetime, timedelta
 from typing import Optional
-from ..models import User, UserCreate, UserLogin, Token
+from models import User, UserCreate, UserLogin, Token
 
 class AuthService:
     def __init__(self, secret_key: str = "your-secret-key-here"):

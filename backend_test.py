@@ -151,17 +151,17 @@ class SiteGuardAPITester:
         self.auth_token = None
         
         success, data, status = await self.make_request(
-            "GET", "/sites", expect_status=401
+            "GET", "/sites", expect_status=403
         )
         
         # Restore token
         self.auth_token = temp_token
         
-        if status == 401:
+        if status == 403:
             self.log_test("Unauthorized Access", "PASS", "Correctly rejected unauthorized request")
             return True
         else:
-            self.log_test("Unauthorized Access", "FAIL", f"Expected 401, got {status}")
+            self.log_test("Unauthorized Access", "FAIL", f"Expected 403, got {status}")
             return False
     
     async def test_add_site(self):

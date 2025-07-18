@@ -16,6 +16,9 @@ class DatabaseService:
     async def create_site(self, site: Site) -> Site:
         """Создание нового сайта"""
         site_dict = site.dict()
+        # Convert HttpUrl to string for MongoDB storage
+        if 'url' in site_dict and hasattr(site_dict['url'], '__str__'):
+            site_dict['url'] = str(site_dict['url'])
         await self.sites_collection.insert_one(site_dict)
         return site
     
